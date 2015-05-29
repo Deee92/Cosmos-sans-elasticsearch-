@@ -1,0 +1,27 @@
+<% provide(:title, @chapter.name) %>
+<div class="content">
+  <h1>Chapter <%= @chapter.number %>: <%= @chapter.name %></h1>
+  <p><%= @chapter.text %></p>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="embed-responsive embed-responsive-4by3 video">
+        <iframe class="embed-responsive-item" src="<%= @chapter.video_link %>" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav_buttons">
+    <% if @previous != 0 %>
+      <%= link_to chapter_path(@previous) do %>
+        <span class="glyphicon glyphicon-chevron-left" style="float: left;" aria-hidden="true"></span>
+      <% end %>
+    <% end %>
+  
+    <% if @next != 14 %>
+      <%= link_to chapter_path(@next) do %>
+        <span class="glyphicon glyphicon-chevron-right" style="float: right;" aria-hidden="true"></span>
+      <% end %>
+    <% end -%> 
+  </div>
+  
+</div>
